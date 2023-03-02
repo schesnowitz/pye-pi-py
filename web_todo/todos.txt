@@ -1,0 +1,7 @@
+st.title("To Do App")
+st.subheader("this is a sub header")
+st.write("this is some regular text")
+st.code("this is a code box markdown deal")
+st.checkbox("get the shitshow on the road")clean my bagfish the fryasd
+sp[djpajsd
+sp[djpajsdsdasd
