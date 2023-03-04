@@ -32,12 +32,18 @@ Below are some python apps I have built.
 """
 st.text(content2)
 # title;description;url;image
-col3, col4 = st.columns(2)
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
 with col3:
     for i, row in data[0:10].iterrows():
         st.header(row['title'])
+        st.write(row['description'])
+        st.image(('images/' + row['image']), width=200)
+        st.write(f"[git repo]({row['url']})")
 
 with col4:
     for i, row in data[10:].iterrows():
         st.header(row['title'])
+        st.write(row['description'])
+        st.image(('images/' + row['image']), width=200)
+        st.write(f"[git repo]({row['url']})")
