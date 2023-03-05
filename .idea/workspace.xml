@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2979cf43-06e8-4a45-8263-45f738f021ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pdf_generator/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pdf_generator/name.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pdf_generator/topics.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pdf_generator/topics.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pypi_ranker/email_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/20.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pypi_ranker/pages/Contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/pypi_ranker/pages/Contact.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_generator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_generator/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +32,8 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/steve/PycharmProjects/20"
+    "last_opened_file_path": "C:/Users/steve/PycharmProjects/20",
+    "settings.editor.selected.configurable": "me.lensvol.blackconnect.settings"
   }
 }]]></component>
   <component name="RecentsManager">
