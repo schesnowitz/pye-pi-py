@@ -1,7 +1,7 @@
 import requests
 from emailer import send_email
 
-api_key = "5a122da0c5cb444b9a2e0f127973fd62"
+api_key = "someKey"
 topic = "tesla"
 url = f"https://newsapi.org/v2/everything?q={topic}&" \
       "from=2023-02-06&sortBy=publishedAt&apiKey=" \
