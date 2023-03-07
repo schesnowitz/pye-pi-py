@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Historical Weather API</h1>
+
+<h3>URL Formats</h3>
+<p>http://127.0.0.1:5000/api/v1/station/date</p>
+
+<p>For one station, one date:
+    <a href="http://127.0.0.1:5000/api/v1/10/2020-10-23"
+       target="_blank">http://127.0.0.1:5000/api/v1/10/2020-10-23
+    </a>
+</p>
+<p>For one station, all dates:
+    <a href="http://127.0.0.1:5000/api/v1/10"
+        target="_blank">http://127.0.0.1:5000/api/v1/10
+    </a>
+</p>
+<p>For one station, one year:
+    <a href="http://127.0.0.1:5000/api/v1/yearly/10/2020"
+        target="_blank">http://127.0.0.1:5000/api/v1/yearly/10/2020
+    </a>
+</p>
+<p>{{data|safe}}</p>
+{% endblock %}
