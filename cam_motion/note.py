@@ -15,10 +15,11 @@ cycle_count = 1
 
 
 def clean_image_folder():
+    print("clean start")
     images = glob.glob("images/*.png")
     for image in images:
         os.remove(image)
-
+    print("clean end")
 
 while True:
     status = 0
@@ -63,14 +64,16 @@ while True:
     status_list = status_list[-2:]
 
     if status_list[0] == 1 and status_list[1] == 0:
-        send_email(image_to_email)
+        email_thread = Thread(target=send_email,
+                              args=(image_to_email))
+        email_thread.daemon = True
 
-    clean_image_folder()
-    cv2.imshow("video", frame)
+        clean_folder_thread = Thread(target=clean_image_folder)
+        clean_folder_thread.daemon = True
 
-
-
-
+        email_thread.start()
+        clean_folder_thread.start()
+        cv2.imshow("video", frame)
 
     # creates a kb exit when type 'q'
     key = cv2.waitKey(1)
