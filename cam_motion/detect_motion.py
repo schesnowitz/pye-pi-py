@@ -15,10 +15,11 @@ cycle_count = 1
 
 
 def clean_image_folder():
+    # print("clean start")
     images = glob.glob("images/*.png")
     for image in images:
         os.remove(image)
-
+    # print("clean end")
 
 while True:
     status = 0
@@ -47,8 +48,9 @@ while True:
         if cv2.contourArea(contour) < 10000:
             continue
         x, y, width, height = cv2.boundingRect(contour)
-        green_rectangle = cv2.rectangle \
-            (frame, (x, y), (x + width, y + height), (0, 255, 0), 3)
+        green_rectangle = cv2.rectangle (frame, (x, y),
+                                         (x + width, y + height),
+                                         (0, 255, 0), 3)
 
         if green_rectangle.any():
             status = 1
@@ -62,13 +64,24 @@ while True:
     status_list.append(status)
     status_list = status_list[-2:]
 
+    # if status_list[0] == 1 and status_list[1] == 0:
+    #     send_email(image_to_email)
+    #
+    # # clean_image_folder()
+    # cv2.imshow("video", frame)
     if status_list[0] == 1 and status_list[1] == 0:
-        send_email(image_to_email)
 
-    # clean_image_folder()
+        email_thread = Thread(target=send_email,
+                              args=(image_to_email, ))#comma sets to truple
+        email_thread.daemon = True
+
+        clean_folder_thread = Thread(target=clean_image_folder)
+        clean_folder_thread.daemon = True
+
+        email_thread.start()
+
     cv2.imshow("video", frame)
-
-
+    # print(status_list)
 
 
 
@@ -77,3 +90,4 @@ while True:
     if key == ord("q"):
         break
 video.release()
+clean_folder_thread.start()
