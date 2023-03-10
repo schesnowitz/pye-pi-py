@@ -4,6 +4,12 @@ import os
 import smtplib, ssl
 import os
 import time
+import sqlite3
+
+
+connection = sqlite3.connect("database.db")
+
+
 
 URL = os.getenv("SRAPE_SITE")
 HEADERS = {
@@ -43,13 +49,22 @@ def extract(page_data):
 
 
 def data_store(extracted):
-    with open("data.txt", "a") as file:
-        file.write(extracted + "\n")
-
-
+    row = extracted.split(",")
+    row = [item.strip() for item in row]
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO events VALUES(?,?,?)", row)
+    connection.commit()
 def read(extracted):
-    with open("data.txt", "r") as file:
-        return file.read()
+    row = extracted.split(",")
+    row = [item.strip() for item in row]
+    band, city, date = row
+    cursor = connection.cursor()
+    cursor.execute(
+    "SELECT * FROM events WHERE band=? AND city=? AND date=?", (band, city, date))
+    rows = cursor.fetchall()
+    print(rows)
+    return rows
+
 
 if __name__ == "__main__":
     while True:
@@ -57,9 +72,10 @@ if __name__ == "__main__":
         extracted = extract(scraped)
         print(extracted)
 
-        content = read(extracted)
+
         if extracted != "No upcoming tours":
-            if not extracted in content:
+            row = read(extracted)
+            if not row:
                 data_store(extracted)
                 send_email(message=f"new data found {extracted}")
         time.sleep(3)
